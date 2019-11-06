@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-3 text-center">
+            <strong>Fiyat</strong>
+        </div>
+        <div class="col-3 text-center">
+            <strong>Satıcı İsmi</strong>
+        </div>
+        <div class="col-3 text-center">
+            <strong>Kargoya Veriliş Tarihi</strong>
+        </div>
+        <div class="col-3 text-center">
+
+        </div>
+    </div>
+    <div class="row" *ngFor="let item of saticilar">
+        <div class="col-3 text-center"><strong>{{item.fiyat | number:"1.2-2"}} TL</strong></div>
+        <div class="col-3 text-center">
+            <p>{{item.saticiName}}</p>
+        </div>
+        <div class="col-3 text-center">
+            <p><strong>{{item.saatSiniri}}</strong> içinde sipariş verirseniz <strong>{{item.gun}}</strong> kargoda</p>
+        </div>
+        <div class="col-3 text-center">
+            <button mat-flat-button="" color="warn" class="mat-flat-button mat-button-base mat-warn"
+                (click)="sepeteEkle(item);"><span class="mat-button-wrapper">Sepete Ekle</span>
+                <div matripple="" class="mat-button-ripple mat-ripple"></div>
+                <div class="mat-button-focus-overlay"></div>
+            </button>
+        </div>
+    </div>
+</div>

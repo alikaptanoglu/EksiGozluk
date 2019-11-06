@@ -11,8 +11,11 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ShellModule } from './shell/shell.module';
 import { ShellComponent } from './shell/shell.component';
 import { HeaderComponent } from './shell/header/header.component';
-import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TumSaticilarComponent } from './tum-saticilar/tum-saticilar.component';
+import { TumSaticilarService } from './tum-saticilar/tum-saticilar.service';
+
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ShellComponent,
     HeaderComponent,
     HomeComponent,
-    LoginComponent,
+    TumSaticilarComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,9 +32,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
-  providers: [],
+  providers: [TumSaticilarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

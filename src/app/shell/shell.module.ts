@@ -7,10 +7,11 @@ import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [ShellComponent],
+  declarations: [ShellComponent, HeaderComponent],
   imports: [
     CommonModule, 
     RouterModule
-  ]
+  ],
+  exports: [ShellComponent]
 })
 export class ShellModule { }

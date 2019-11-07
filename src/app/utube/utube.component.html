@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="searchForm" (ngSubmit)="search()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ara</label>
+                    <input type="text" class="form-control" formControlName="searchInput" required>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!searchForm.valid">Ara</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6" *ngFor="let item of result">
+            <div class="card mb-3">
+                <img src="{{item.snippet.thumbnails.high.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <nav>
+                            <a routerLink="/utube-video/{{item.id.videoId}}" >{{item.snippet.title}}</a>
+                          </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

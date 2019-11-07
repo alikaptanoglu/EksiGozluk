@@ -16,12 +16,13 @@ import { TumSaticilarComponent } from './tum-saticilar/tum-saticilar.component';
 import { TumSaticilarService } from './tum-saticilar/tum-saticilar.service';
 
 import { ToastrModule } from 'ngx-toastr';
+import { UtubeModule } from './utube/utube.module';
+import { UtubeService } from './utube/utube.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShellComponent,
-    HeaderComponent,
     HomeComponent,
     TumSaticilarComponent,
   ],
@@ -34,7 +35,10 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     MatTabsModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    ToastrModule.forRoot(), // ToastrModule added
+    ShellModule,
+    UtubeModule,
+    HttpClientModule,
   ],
   providers: [TumSaticilarService],
   bootstrap: [AppComponent]

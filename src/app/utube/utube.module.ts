@@ -5,6 +5,8 @@ import { UtubeVideoComponent } from './utube-video/utube-video.component';
 import { UtubeService } from './utube.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
+  MatSortModule, MatTableModule } from "@angular/material";
 
 
 
@@ -13,7 +15,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MatPaginatorModule,
   ],
   providers: [UtubeService],
 

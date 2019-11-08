@@ -13,8 +13,8 @@ export class UtubeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getSearchResult(searchInput: string): Observable<any[]>  {
-    let url = `https://www.googleapis.com/youtube/v3/search?key=${this.key}&order=date&part=id,snippet&type=video,id&maxResults=10&q=${searchInput}`;
+  getSearchResult(searchInput: string, size: number): Observable<any[]>  {
+    let url = `https://www.googleapis.com/youtube/v3/search?key=${this.key}&order=date&part=id,snippet&type=video,id&maxResults=${size}&q=${searchInput}`;
     return this.httpClient.get<any[]>(url);
   }
 }

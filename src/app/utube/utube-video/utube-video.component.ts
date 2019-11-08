@@ -13,13 +13,14 @@ export class UtubeVideoComponent implements OnInit {
   // reframed: Boolean = false;
   video: any;
   url:any;
+  urlVideo:any;
 
   constructor(
     private route: ActivatedRoute, private sanitizer:DomSanitizer) { }
 
   ngOnInit() {
     this.video = this.route.snapshot.paramMap.get('id');
-    this.url = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/'+this.video);
+    this.url = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/'+this.video);
 
     console.log(this.video);
   }

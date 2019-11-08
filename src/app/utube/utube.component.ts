@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtubeService } from './utube.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatPaginatorModule, PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-utube',
@@ -13,6 +14,7 @@ export class UtubeComponent implements OnInit {
   });
 
   result: any[];
+  pageEvent: PageEvent;
 
 
   constructor(private fb: FormBuilder, private utubeService: UtubeService) { }
@@ -22,10 +24,19 @@ export class UtubeComponent implements OnInit {
   }
 
   search(){
-    this.utubeService.getSearchResult(this.searchForm.controls["searchInput"].value).subscribe(resp => {
+    this.utubeService.getSearchResult(this.searchForm.controls["searchInput"].value, 10).subscribe(resp => {
       this.result = resp["items"];
       console.log(this.result);
     });
+  }
+
+  public getServerData(event?:PageEvent){
+    this.utubeService.getSearchResult(this.searchForm.controls["searchInput"].value, event.pageSize).subscribe(resp => {
+      this.result = resp["items"];
+      console.log(this.result);
+      console.log(event);
+    });
+    return event;
   }
 
 }
